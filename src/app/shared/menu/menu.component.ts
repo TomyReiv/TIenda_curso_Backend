@@ -56,6 +56,6 @@ export class MenuComponent {
   }
 
   redirectTo() {
-    window.open(`http://localhost:4200/pages/Shopping_cart`, '_blank');
+    window.open(`http://localhost:4200/pages/Shopping_cart`, "_self");
   }
 }

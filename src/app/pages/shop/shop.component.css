@@ -1,11 +1,16 @@
 .cart-container {
-  margin: 2rem;
+  margin: auto;
+  margin-top: 1rem;
   padding: 1rem;
   border: 1px solid #ddd;
   border-radius: 4px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
+  width: 70%;
+}
+h1{
+  text-align: center;
 }
 
 .cart-items {
@@ -74,10 +79,16 @@
 
 @media (max-width: 767px) {
 
+  h1{
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
   .cart-container{
     margin: 0%;
     padding: 0%;
     border: none;
+    width: 100%;
   }
 
   .cart-item-details {

@@ -1,5 +1,5 @@
 <div class="cart-container">
-    <h2>Tu Carrito de Compras</h2>
+    <h1>Tu Carrito de Compras</h1>
     <div class="cart-items">
       <div class="cart-item" *ngFor="let item of cartItems">
         <div class="cart-item-thumbnail">
@@ -16,7 +16,13 @@
       <h3>Resumen de la Orden</h3>
       <p>Total de Artículos: {{ cartItems.length }}</p>
       <p>Total: ${{ getTotalPrice() }}</p>
-      <button>Ir a Pago</button>
+      <button
+          style="padding: 0.7rem"
+          pButton
+          pRipple
+          label="Ir a pagar"
+          class="p-button-success"
+        ></button>
     </div>
   </div>
   

@@ -11,7 +11,11 @@
     justify-content: center;
     gap: 1.25rem;
   }
-  
+  img{
+    max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  }
   .producto {
     background-color: #f5f5f5;
     padding: 1.25rem;

@@ -1,14 +1,35 @@
 <div class="container">
-    <h1>Bienvenido a mi home-sale, la venta de todas mis cosas.</h1>
-    <div class="productos">
-      <div *ngFor="let producto of productos" class="producto" style="cursor: pointer;" (click)="redireccionarSerie(producto.id)">
+  <h1>Bienvenido a mi home-sale, la venta de todas mis cosas.</h1>
+  <div class="productos">
+    <div
+      *ngFor="let producto of productos"
+      class="producto"
+    >
+      <div (click)="redireccionarSerie(producto.id)"  style="cursor: pointer">
+        <img src="../../../assets/mueble.webp" alt="">
         <h2>{{ producto.nombre }}</h2>
         <p>{{ producto.descripcion }}</p>
         <p>Precio: ${{ producto.precio }}</p>
-        <div class="button">
-          <button style="padding: 0.4rem;" (click)="guardarProducto(product_imageUrl, producto.precio, producto.nombre, producto.id)" pButton pRipple label="" icon="pi pi-shopping-cart" class="p-button-success"></button>
-        </div>
+      </div>
+      <hr>
+      <div class="button">
+        <button
+          style="padding: 0.4rem"
+          (click)="
+            guardarProducto(
+              product_imageUrl,
+              producto.precio,
+              producto.nombre,
+              producto.id
+            )
+          "
+          pButton
+          pRipple
+          label=""
+          icon="pi pi-shopping-cart"
+          class="p-button-success"
+        ></button>
       </div>
     </div>
   </div>
-  
+</div>
