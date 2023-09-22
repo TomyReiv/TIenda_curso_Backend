@@ -1,0 +1,12 @@
+<div class="product-container" *ngFor="let product of productos">
+    <div class="product-image">
+      <img [src]="product_imageUrl" alt="">
+    </div>
+    <div class="product-details">
+      <h1>{{ product.nombre }}</h1>
+      <h3>{{ product.descripcion }}</h3>
+      <h2>Price: ${{ product.precio }}</h2>
+      <button (click)="guardarProducto(product_imageUrl, product.precio, product.nombre, product.id)" pButton pRipple label="Agragar a carro" class="p-button-success"></button>
+    </div>
+  </div>
+  
