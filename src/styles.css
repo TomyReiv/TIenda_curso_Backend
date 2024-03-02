@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeicons/primeicons.css";
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+
 body{
     background-color: #ededed;
+    font-family: 'Bree Serif', serif;
 }

@@ -1,4 +1,5 @@
 export const enviroment = {
     production: false,
-    Url: 'assets/productos.json'
+   /*  Url: 'assets/productos.json' */
+   Url: 'http://localhost:8080/api'
 }

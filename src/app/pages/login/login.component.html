@@ -1,1 +1,50 @@
-<p>login works!</p>
+<section>
+  <form
+    class="contact-form"
+    (submit)="send()"
+    [formGroup]="myForm"
+    autocomplete="off"
+  >
+    <fieldset>
+      <legend>Login:</legend>
+      <hr />
+      <div class="form-group">
+        <label for="username">Nombre de usuario:</label>
+        <input
+          type="text"
+          pInputText
+          id="username"
+          formControlName="username"
+          name="username"
+          required
+        />
+        <span *ngIf="validField('username')">{{ fieldError("username") }}</span>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          pInputText
+          type="email"
+          id="email"
+          formControlName="email"
+          name="email"
+          required
+        />
+        <span *ngIf="validField('email')">*Este campo es obligatorio</span>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <p-password
+          class="form-group-input"
+          id="password"
+          formControlName="password"
+          name="password"
+          [(ngModel)]="value"
+          [toggleMask]="true"
+        ></p-password>
+        <span *ngIf="validField('password')">{{ fieldError("password") }}</span>
+      </div>
+    </fieldset>
+    <button class="btn-send" type="submit">Login</button>
+  </form>
+</section>

@@ -19,7 +19,20 @@
   text-align: center;
   margin-top: 2rem;
 }
-
+.form{
+  display:  flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.select{
+  width: 3rem;
+  height: 3rem;
+  border-radius: 5px;
+  text-align: center;
+}
+.select:hover{
+  border-color: #007bff;
+}
 @media (max-width: 767px) {
   .product-container {
     display: flex;

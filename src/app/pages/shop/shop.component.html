@@ -1,27 +1,28 @@
 <div class="cart-container">
     <h1>Tu Carrito de Compras</h1>
     <div class="cart-items">
-      <div class="cart-item" *ngFor="let item of cartItems">
+      <div class="cart-item" *ngFor="let item of cartItems[0]">
         <div class="cart-item-thumbnail">
-          <img [src]="item.imagen" alt="{{ item.nombre }}">
+          <img src="{{item.pid.thumbnail[0].path}}" alt="{{ item.pid.title }}">
         </div>
         <div class="cart-item-details">
-          <p>{{ item.nombre }}</p>
-          <p>Precio: ${{ item.precio }}</p>
-          <span (click)="removeFromCart(item)">Eliminar</span>
+          <p>{{ item.pid.title }}</p>
+          <p>Precio: ${{ item.pid.price }}</p>
+          <span (click)="removeFromCart(item.pid._id)">Eliminar</span>
         </div>
       </div>
     </div>
     <div class="cart-summary">
       <h3>Resumen de la Orden</h3>
-      <p>Total de Artículos: {{ cartItems.length }}</p>
+      <p>Total de Artículos: {{ cartItems[0]?.length }}</p>
       <p>Total: ${{ getTotalPrice() }}</p>
       <button
           style="padding: 0.7rem"
           pButton
           pRipple
-          label="Ir a pagar"
+          label="Comprar"
           class="p-button-success"
+          (click)="buy()"
         ></button>
     </div>
   </div>

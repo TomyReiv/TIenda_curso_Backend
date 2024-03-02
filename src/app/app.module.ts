@@ -9,11 +9,13 @@ import { PagesModule } from './pages/pages.module';
 import { StylesModule } from './styles/styles.module';
 import { MenuComponent } from './shared/menu/menu.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     AppRoutingModule,

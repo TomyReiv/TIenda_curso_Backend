@@ -1,0 +1,74 @@
+.contact-form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+  }
+  
+  .contact-form fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .contact-form legend {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    margin-top: 1rem;
+  }
+  .form-group-input{
+    margin-left: 1rem;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  .form-group-input:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  .mensaje {
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .btn-send {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .btn-send:hover {
+    background-color: #0056b3;
+  }
+  

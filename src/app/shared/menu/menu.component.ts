@@ -22,27 +22,6 @@ export class MenuComponent {
 
       },
       {
-        label: 'Tienda',
-        icon: 'pi pi-fw pi-shopping-bag',
-        items: [
-          {
-            label: 'Libros',
-            icon: 'pi pi-fw pi-book',
-            routerLink: '/pages/Books'
-          },
-          {
-            label: 'Otros',
-            icon: 'pi pi-fw pi-ellipsis-h',
-            routerLink: '/pages/Other'
-          }
-        ]
-      },
-      {
-        label: 'Mi cuenta',
-        icon: 'pi pi-fw pi-user',
-        routerLink: '/pages/Account'
-      },
-      {
         label: 'Login',
         icon: 'pi pi-fw pi-sign-in',
         routerLink: '/pages/Login'

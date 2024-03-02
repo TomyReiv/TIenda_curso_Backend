@@ -7,12 +7,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AccountComponent } from './account/account.component';
-import { BooksComponent } from './books/books.component';
-import { OtherComponent } from './other/other.component';
 import { ShopComponent } from './shop/shop.component';
-import { ItemComponent } from './item/item.component';
 import { StylesModule } from '../styles/styles.module';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ItemComponent } from './item/item.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +18,6 @@ import { StylesModule } from '../styles/styles.module';
     LoginComponent,
     RegisterComponent,
     AccountComponent,
-    BooksComponent,
-    OtherComponent,
     ShopComponent,
     ItemComponent
   ],
@@ -29,7 +25,9 @@ import { StylesModule } from '../styles/styles.module';
     CommonModule,
     HttpClientModule,
     PagesRoutingModule,
-    StylesModule
+    StylesModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class PagesModule { }

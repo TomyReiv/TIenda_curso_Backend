@@ -1,12 +1,36 @@
-<div class="product-container" *ngFor="let product of productos">
-    <div class="product-image">
-      <img [src]="product_imageUrl" alt="">
-    </div>
-    <div class="product-details">
-      <h1>{{ product.nombre }}</h1>
-      <h3>{{ product.descripcion }}</h3>
-      <h2>Price: ${{ product.precio }}</h2>
-      <button (click)="guardarProducto(product_imageUrl, product.precio, product.nombre, product.id)" pButton pRipple label="Agragar a carro" class="p-button-success"></button>
-    </div>
+<div class="product-container">
+  <div class="product-image">
+    <img src="{{ productos.thumbnail[0]?.path }}" alt="{{ productos.title }}" />
   </div>
-  
+  <div class="product-details">
+    <h1>{{ productos.title }}</h1>
+    <h3>{{ productos.description }}</h3>
+    <h2>Price: ${{ productos.price }}</h2>
+    <h3>Stock: {{ productos.stock }}</h3>
+    <form
+      (submit)="guardar(productos._id)"
+      [formGroup]="myForm"
+      id="form"
+      class="form"
+    >
+      <select formControlName="valor" name="valor" id="valor" class="select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      <button
+        pButton
+        pRipple
+        label="Agragar a carro"
+        class="p-button-success"
+      ></button>
+    </form>
+  </div>
+</div>

@@ -1,1 +1,111 @@
-<p>register works!</p>
+<section>
+  <form
+    class="contact-form"
+    (submit)="send()"
+    [formGroup]="myForm"
+    autocomplete="off"
+  >
+    <fieldset>
+      <legend>Nuevo usuario:</legend>
+      <hr />
+      <div class="form-group">
+        <div>
+          <label for="username">Nombre de usuario:</label>
+          <input
+            type="text"
+            pInputText
+            id="username"
+            formControlName="username"
+            name="username"
+            required
+          />
+          <span *ngIf="validField('username')">{{
+            fieldError("username")
+          }}</span>
+        </div>
+        <div>
+          <label for="lastname">Apellido de usuario:</label>
+          <input
+            type="text"
+            pInputText
+            id="lastname"
+            formControlName="lastname"
+            name="lastname"
+            required
+          />
+          <span *ngIf="validField('lastname')">{{
+            fieldError("lastname")
+          }}</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <label for="email">Email:</label>
+          <input
+            pInputText
+            type="email"
+            id="email"
+            formControlName="email"
+            name="email"
+            required
+          />
+          <span *ngIf="validField('email')">{{ fieldError("email") }}</span>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input
+              pInputText
+              id="password"
+              formControlName="password"
+              name="password"
+              required
+            />
+            <span *ngIf="validField('password')">{{ fieldError("password") }}</span>
+        </div>
+      </div>
+      <legend>Dirección:</legend>
+      <hr>
+      <div class="form-group">
+       
+        <div formGroupName="address">
+            <label for="country">País:</label>
+            <input
+              pInputText
+              id="country"
+              formControlName="country"
+              name="country"
+              required
+            />
+            <span *ngIf="validField('address')">{{ fieldError("address") }}</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div formGroupName="address">
+            <label for="city">Ciudad:</label>
+            <input
+              pInputText
+              id="city"
+              formControlName="city"
+              name="city"
+              required
+            />
+            <span *ngIf="validField('address')">{{ fieldError("address") }}</span>
+        </div>
+        <div formGroupName="address">
+            <label for="street">Calle:</label>
+            <input
+              pInputText
+              id="street"
+              formControlName="street"
+              name="street"
+              required
+            />
+            <span *ngIf="validField('address')">{{ fieldError("address") }}</span>
+        </div>
+      </div>
+
+    </fieldset>
+    <button class="btn-send" type="submit">Registrar</button>
+  </form>
+</section>
