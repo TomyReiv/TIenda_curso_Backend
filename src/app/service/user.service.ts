@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { enviroment } from 'environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 import { User } from '../interface/user';
 
 @Injectable({
@@ -23,20 +23,51 @@ export class UserService {
     const url = `${this.userUrl}/users`;
     return this.http.post(url, credentials);
   }
-
-  isLoggedIn(): boolean {
-    return !!localStorage.getItem('userData');
+  get(){
+    const url = `${this.userUrl}/users`;
+    return this.http.get(url);
   }
 
-  isAdmin(): boolean{
-    const url = `${this.userUrl}/users/${this.data.id}`;
-    this.http.get(url).subscribe((res: any)=>{
-      res = this.user;
-    });
-    if(this.user!.rol === "admin" || this.user!.rol === "premium"){
-      return true;
-    } else{
-      return false;
+  isLoggedIn(): Observable<boolean> {
+    if(!this.data){
+      return of(false);
     }
+    const url = `${this.userUrl}/users/${this.data.id}`;
+   
+    return this.http.get(url).pipe(
+      map((res: any) => {
+        return res.rol === "admin" || res.rol === "premium" || res.rol === "user";
+      }),
+      catchError(error => {
+        console.error('Error al obtener el rol del usuario:', error);
+        return of(false);
+      })
+    );
+  }
+
+  isPremium(): Observable<boolean> {
+    const url = `${this.userUrl}/users/${this.data.id}`;
+    return this.http.get(url).pipe(
+      map((res: any) => {
+        return res.rol === "admin" || res.rol === "premium";
+      }),
+      catchError(error => {
+        console.error('Error al obtener el rol del usuario:', error);
+        return of(false);
+      })
+    );
+  }
+
+  isAdmin(): Observable<boolean> {
+    const url = `${this.userUrl}/users/${this.data.id}`;
+    return this.http.get(url).pipe(
+      map((res: any) => {
+        return res.rol === "admin";
+      }),
+      catchError(error => {
+        console.error('Error al obtener el rol del usuario:', error);
+        return of(false);
+      })
+    );
   }
 }

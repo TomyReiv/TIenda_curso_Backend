@@ -12,8 +12,7 @@ export class RegisterComponent {
 
   private userService = inject(UserService);
   private router = inject(Router);
-
-  constructor(private fb: FormBuilder) { }
+  private fb=  inject(FormBuilder);
 
   enviado: boolean = false;
 

@@ -35,6 +35,10 @@ export class ProductServiceService {
       })
     );
   }
+  saveProduct(data: any){
+    const url = `${this.prodUrl}/products/products`;
+    return this.http.post(url, data);
+  }
 
 /*   getAllProducts(): Observable<any> {
     return this.http.get(this.userUrl);

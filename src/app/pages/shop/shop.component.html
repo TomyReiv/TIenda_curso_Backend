@@ -6,8 +6,9 @@
           <img src="{{item.pid.thumbnail[0].path}}" alt="{{ item.pid.title }}">
         </div>
         <div class="cart-item-details">
-          <p>{{ item.pid.title }}</p>
-          <p>Precio: ${{ item.pid.price }}</p>
+          <p><strong>Artículo:</strong> {{ item.pid.title }}</p>
+          <p><strong>Cantidad:</strong> {{ item.quantity }}</p>
+          <p><strong> Precio:</strong> ${{ item.pid.price }}</p>
           <span (click)="removeFromCart(item.pid._id)">Eliminar</span>
         </div>
       </div>

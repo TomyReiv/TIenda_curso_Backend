@@ -11,6 +11,7 @@ import { ShopComponent } from './shop/shop.component';
 import { StylesModule } from '../styles/styles.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ItemComponent } from './item/item.component';
+import { UserViewComponent } from './user-view/user-view.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ItemComponent } from './item/item.component';
     RegisterComponent,
     AccountComponent,
     ShopComponent,
-    ItemComponent
+    ItemComponent,
+    UserViewComponent
   ],
   imports: [
     CommonModule,

@@ -29,8 +29,6 @@ export class ItemComponent {
       this.productIdToSearch = params.get('id')!;
       this.productService.searchProduct(this.productIdToSearch).subscribe((result) => {
         this.productos = result;
-        console.log(this.productos);
-        
       });
     });
 
@@ -50,8 +48,14 @@ export class ItemComponent {
       items: [cartProductData]
     }
     const data = JSON.stringify(carrito)
-    this.cartService.addToCart(carrito).subscribe((res) => {
+    this.cartService.addToCart(carrito).subscribe(
+      (res) => {
       alert(res.message);
-    })
+    },
+    (err)=>{
+      console.log(err);
+      alert(err.error.message);
+    }
+    )
   }
 }

@@ -1,6 +1,7 @@
 <div class="card">
   <p-menubar [model]="items">
     <ng-template pTemplate="end">
+      <i class="pi pi-trash" style="font-size: 1.3rem; margin: 1rem; cursor: pointer;" (click)="logout()"></i>
       <i class="pi pi-shopping-cart" style="font-size: 1.3rem; margin: 1rem; cursor: pointer;" (click)="redirectTo()"></i>
     </ng-template>
   </p-menubar>

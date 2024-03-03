@@ -1,6 +1,6 @@
 <div class="product-container">
   <div class="product-image">
-    <img src="{{ productos.thumbnail[0]?.path }}" alt="{{ productos.title }}" />
+    <img loading="lazy" src="{{ productos.thumbnail[0]?.path }}" alt="{{ productos.title }}" />
   </div>
   <div class="product-details">
     <h1>{{ productos.title }}</h1>
@@ -28,7 +28,7 @@
       <button
         pButton
         pRipple
-        label="Agragar a carro"
+        label="Agragar"
         class="p-button-success"
       ></button>
     </form>

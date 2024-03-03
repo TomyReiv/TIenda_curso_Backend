@@ -6,11 +6,11 @@ import { Observable, of, switchMap } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class adminGuard implements CanActivate {
+export class premiumGuard implements CanActivate {
   constructor(private userService: UserService, private router: Router) { }
 
   canActivate(): Observable<boolean> {
-    return this.userService.isAdmin().pipe(
+    return this.userService.isPremium().pipe(
       switchMap(isAdmin => {
         if (isAdmin) {
           return of(true);

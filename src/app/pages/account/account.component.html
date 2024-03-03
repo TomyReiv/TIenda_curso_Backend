@@ -1,18 +1,80 @@
-<div class="mi-cuenta">
-    <main>
-      <section class="account-info">
-        <h1>Bienvenido a su interfaz de usuario</h1>
-        <p>Usuario: Tomas Rave</p>
-        <p>Email: ravetomas@hotmail.com</p>
-      </section>
-  
-      <section class="order-history">
-        <!-- Historial de pedidos -->
-      </section>
-    </main>
-  
-    <footer>
-      <!-- Pie de página -->
-    </footer>
-  </div>
-  
+<div class="contact-form">
+  <fieldset>
+    <legend>Cargar Nuevo Producto</legend>
+    <form [formGroup]="myForm" (submit)="submitForm()" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="title">Título:</label>
+        <input
+          formControlName="title"
+          type="text"
+          id="title"
+          name="title"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Descripción:</label>
+        <input
+          formControlName="description"
+          type="text"
+          id="description"
+          name="description"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="price">Precio:</label>
+        <input
+          formControlName="price"
+          type="number"
+          id="price"
+          name="price"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="file">Imagen:</label>
+        <input
+          type="file"
+          name="file"
+          id="file"
+          (change)="onFileSelected($event)"
+          placeholder="Agregue una imagen"
+          style="margin: 1rem"
+        />
+      </div>
+      <div class="form-group">
+        <label for="code">Código:</label>
+        <input
+          formControlName="code"
+          type="text"
+          id="code"
+          name="code"
+          required
+          
+        />
+      </div>
+      <div class="form-group">
+        <label for="stock">Stock:</label>
+        <input
+          formControlName="stock"
+          type="number"
+          id="stock"
+          name="stock"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="category">Categoría:</label>
+        <input
+          formControlName="category"
+          type="text"
+          id="category"
+          name="category"
+          required
+        />
+      </div>
+      <button type="submit" class="btn-send">Guardar Producto</button>
+    </form>
+  </fieldset>
+</div>

@@ -47,8 +47,13 @@ export class HomeComponent {
       userId: this.userData.id.trim(),
       items: [cartProductData]
     }
-    this.cartService.addToCart(carrito).subscribe((res) => {
+    this.cartService.addToCart(carrito).subscribe(
+      (res) => {
       alert(res.message);
-    })
+    },
+    (err)=>{
+      alert(err.error.message)
+    }
+    )
   }
 }

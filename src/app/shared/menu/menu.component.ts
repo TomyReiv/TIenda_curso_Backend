@@ -30,11 +30,32 @@ export class MenuComponent {
         label: 'Register',
         icon: 'pi pi-fw pi-user-edit',
         routerLink: '/pages/Register'
+      },
+      {
+        label: 'Premium',
+        icon: 'pi pi-fw pi-user',
+        items:[
+          {
+            label: 'Producto',
+            icon: 'pi pi-fw pi-list',
+            routerLink: '/pages/Producto'
+          },
+          {
+            label: 'Usuarios',
+            icon: 'pi pi-fw pi-user-edit',
+            routerLink: '/pages/Usuario'
+          }
+        ]
       }
     ]
   }
 
   redirectTo() {
     window.open(`http://localhost:4200/pages/Shopping_cart`, "_self");
+  }
+  logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userData");
+    this.router.navigate(['/pages/Login']);
   }
 }

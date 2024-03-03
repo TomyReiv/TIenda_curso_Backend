@@ -1,13 +1,12 @@
 <div class="container">
-  <h1>Bienvenido a mi home-sale, la venta de todas mis cosas.</h1>
+  <h1>Bienvenido a mi ecommerce.</h1>
   <p>
-    Ademas de comprar productos de calidad a buen precio, me vas a ayudar a
-    cumplir mi sueño de poder emigrar!
+    Entrega final para el curso de programación Backend, en coderhouse
   </p>
   <div class="productos">
     <div *ngFor="let producto of productos" class="producto">
       <div (click)="redireccionarSerie(producto._id)" style="cursor: pointer">
-        <img [src]="producto.thumbnail[0].path" alt="{{ producto.title }}" />
+        <img [src]="producto?.thumbnail[0].path" alt="{{ producto.title }}" />
         <h2>{{ producto.title }}</h2>
         <p>{{ producto.description }}</p>
         <p>Precio: ${{ producto.price }}</p>
