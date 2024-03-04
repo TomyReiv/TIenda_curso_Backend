@@ -1,0 +1,86 @@
+<div class="contact-form">
+    <fieldset>
+      <legend>Editar {{productos?.title}}</legend>
+      <form [formGroup]="myForm" (submit)="submitForm()" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="title">Título:</label>
+          <input
+            formControlName="title"
+            type="text"
+            id="title"
+            name="title"
+            [placeholder]="productos?.title"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Descripción:</label>
+          <input
+            formControlName="description"
+            type="text"
+            id="description"
+            name="description"
+            [placeholder]="productos?.description"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="price">Precio:</label>
+          <input
+            formControlName="price"
+            type="number"
+            id="price"
+            name="price"
+            [placeholder]="productos?.price"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="file">Imagen:</label>
+          <input
+            type="file"
+            name="file"
+            id="file"
+            (change)="onFileSelected($event)"
+            placeholder="Agregue una imagen"
+            style="margin: 1rem"
+          />
+        </div>
+        <div class="form-group">
+          <label for="code">Código:</label>
+          <input
+            formControlName="code"
+            type="text"
+            id="code"
+            name="code"
+            [placeholder]="productos?.code"
+            required
+            
+          />
+        </div>
+        <div class="form-group">
+          <label for="stock">Stock:</label>
+          <input
+            formControlName="stock"
+            type="number"
+            id="stock"
+            name="stock"
+            [placeholder]="productos?.stock"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="category">Categoría:</label>
+          <input
+            formControlName="category"
+            type="text"
+            id="category"
+            name="category"
+            [placeholder]="productos?.category"
+            required
+          />
+        </div>
+        <button type="submit" class="btn-send">Guardar Producto</button>
+      </form>
+    </fieldset>
+  </div>

@@ -78,3 +78,42 @@
     </form>
   </fieldset>
 </div>
+
+
+<div class="container">
+  <h1>Bienvenido a mi ecommerce.</h1>
+  <p>
+    Entrega final para el curso de programación Backend, en coderhouse
+  </p>
+  <div class="productos">
+    <div *ngFor="let producto of productos" class="producto">
+      <div style="cursor: pointer">
+        <img [src]="producto?.thumbnail[0].path" alt="{{ producto?.title }}" />
+        <h2>{{ producto?.title }}</h2>
+        <p>{{ producto?.description }}</p>
+        <p>Precio: ${{ producto?.price }}</p>
+        <p>Stock: {{ producto?.stock }}</p>
+      </div>
+      <hr />
+      <div class="button">
+        <button
+          style="padding: 0.4rem"
+          (click)="edit(producto?._id)"
+          pButton
+          pRipple
+          label="Editar"
+          
+          class="p-button-success"
+        ></button>
+        <button
+          style="padding: 0.4rem;  margin-left: 0.5rem;"
+          (click)="delete(producto?._id)"
+          pButton
+          pRipple
+          label="Eliminar"
+          class="p-button-danger"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>

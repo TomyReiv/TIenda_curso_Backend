@@ -12,7 +12,6 @@ import { ProductServiceService } from 'src/app/service/product-service.service';
 export class HomeComponent {
   public productos!: any[];
   public save: boolean = false;
-  public product_imageUrl: string = '../../assets/mueble.webp'
   public userData: any = JSON.parse(localStorage.getItem('userData')!) || null;
   private productService = inject(ProductServiceService);
   private router = inject(Router);

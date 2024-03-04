@@ -39,7 +39,15 @@ export class ProductServiceService {
     const url = `${this.prodUrl}/products/products`;
     return this.http.post(url, data);
   }
+  updateProduct(pid: any, data: any){
+    const url = `${this.prodUrl}/products/${pid}`;
+    return this.http.put(url, data);
+  }
 
+  delete(pid: any){
+    const url = `${this.prodUrl}/products/${pid}`;
+    return this.http.delete(url);
+  }
 /*   getAllProducts(): Observable<any> {
     return this.http.get(this.userUrl);
   } */

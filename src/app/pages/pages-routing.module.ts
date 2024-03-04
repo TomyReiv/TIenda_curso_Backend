@@ -10,6 +10,7 @@ import { authGuard } from '../guards/auth.guard';
 import { adminGuard } from '../guards/admin.guard';
 import { UserViewComponent } from './user-view/user-view.component';
 import { premiumGuard } from '../guards/premium.guard';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
       {path: 'Usuario', canActivate: [adminGuard], component: UserViewComponent},
       {path: 'Shopping_cart', canActivate: [authGuard], component: ShopComponent},
       {path: 'Item/:id', canActivate: [authGuard], component: ItemComponent},
+      {path: 'edit-product/:id', canActivate: [premiumGuard], component: EditProductComponent},
       {path: '**', redirectTo: 'Home'}
     ]
   }

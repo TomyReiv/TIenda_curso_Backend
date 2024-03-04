@@ -12,6 +12,7 @@ import { StylesModule } from '../styles/styles.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ItemComponent } from './item/item.component';
 import { UserViewComponent } from './user-view/user-view.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserViewComponent } from './user-view/user-view.component';
     AccountComponent,
     ShopComponent,
     ItemComponent,
-    UserViewComponent
+    UserViewComponent,
+    EditProductComponent
   ],
   imports: [
     CommonModule,
