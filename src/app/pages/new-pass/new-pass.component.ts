@@ -1,22 +1,20 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { enviroment } from 'environments/environment.prod';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-new-pass',
+  templateUrl: './new-pass.component.html',
+  styleUrls: ['./new-pass.component.css']
 })
-export class LoginComponent {
-
+export class NewPassComponent {
   private userService = inject(UserService);
   private router = inject(Router);
-  public url = enviroment.Url;
-
+  private route = inject(ActivatedRoute);
+  private fb = inject(FormBuilder); 
+  public id: any;
   value: string = '';
-  constructor(private fb: FormBuilder) { }
 
   handlePasswordChange(event: any) {
     this.value = event.value;
@@ -25,9 +23,8 @@ export class LoginComponent {
   enviado: boolean = false;
 
   public myForm: FormGroup = this.fb.group({
-    username: ['', Validators.required],
-    password: ['', [Validators.required, Validators.minLength(6)]],
-    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required],
+    re_password: ['', Validators.required],
   });
 
   validField(field: string): boolean | null {
@@ -51,18 +48,23 @@ export class LoginComponent {
     }
     return null;
   }
-  send() {
-    this.userService.login(this.myForm.value).subscribe(
-      (res) => {
-      localStorage.setItem('userData', JSON.stringify(res));
-      this.router.navigate(['/home']);
-    },(err)=>{
-      alert('Email o contraseña incorrectas')
-    })
+  send(): any {
+    const equalPass =  this.myForm.value.password === this.myForm.value.re_password
+    if(!equalPass){
+      return alert("Las contraseñas no coinciden")
+    }
+    
+    this.route.paramMap.subscribe((params) => {
+      this.id = params.get('id')!;
+      this.userService.newPass(this.id, this.myForm.value).subscribe(
+        (res: any) => {
+        alert(res.message)
+    this.router.navigate(["/pages/login"])
+      },(err)=>{
+        alert(err.message)
+      }
+      );
+    });
 
-  }
-
-  recoverPassword(){
-    this.router.navigate(['/pages/recoverPassword']);
   }
 }

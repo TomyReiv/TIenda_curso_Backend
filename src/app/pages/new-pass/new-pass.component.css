@@ -1,6 +1,6 @@
 .contact-form {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
     padding: 20px;
     background-color: #f5f5f5;
@@ -21,6 +21,8 @@
   }
   
   .form-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     margin-bottom: 20px;
   }
   
@@ -28,15 +30,15 @@
     font-weight: bold;
   }
   
-  .form-group input {
+/*   .form-group input {
     width: 100%;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     margin-top: 1rem;
-  }
+  } */
   .form-group-input{
-    margin-left: 1rem;
+    
     font-size: 16px;
     width: 100%;
   }
@@ -71,11 +73,4 @@
   .btn-send:hover {
     background-color: #0056b3;
   }
-  .recoverPass{
-    padding: 1rem;
-    cursor: pointer;
-    color: #0056b3;
-  }
-  .recoverPass:hover{
-    color: #011c38;
-  }
+  

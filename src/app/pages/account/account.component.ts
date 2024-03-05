@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Producto } from 'src/app/interface/producto';
 import { ProductServiceService } from 'src/app/service/product-service.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { ProductServiceService } from 'src/app/service/product-service.service';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent {
-  productos: any = {}; 
+  public productos!: any[];
 
   public owner: any = JSON.parse(localStorage.getItem('userData') || '{}');
   private router = inject(Router);

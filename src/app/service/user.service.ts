@@ -59,6 +59,7 @@ export class UserService {
   }
 
   isAdmin(): Observable<boolean> {
+    
     const url = `${this.userUrl}/users/${this.data.id}`;
     return this.http.get(url).pipe(
       map((res: any) => {
@@ -69,5 +70,10 @@ export class UserService {
         return of(false);
       })
     );
+  }
+
+  newPass(id: any, body: any){
+    const url = `${this.userUrl}/users/${id}`;
+    return this.http.put(url, body)
   }
 }

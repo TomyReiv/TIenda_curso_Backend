@@ -4,19 +4,19 @@
     Entrega final para el curso de programación Backend, en coderhouse
   </p>
   <div class="productos">
-    <div *ngFor="let producto of productos" class="producto">
-      <div (click)="redireccionarSerie(producto._id)" style="cursor: pointer">
-        <img [src]="producto?.thumbnail[0].path" alt="{{ producto.title }}" />
-        <h2>{{ producto.title }}</h2>
-        <p>{{ producto.description }}</p>
-        <p>Precio: ${{ producto.price }}</p>
-        <p>Stock: {{ producto.stock }}</p>
+    <div *ngFor="let producto of productos | keyvalue" class="producto">
+      <div (click)="redireccionarSerie(producto.value._id)" style="cursor: pointer">
+        <img [src]="producto?.value.thumbnail[0].path" alt="{{ producto.value.title }}" />
+        <h2>{{ producto.value.title }}</h2>
+        <p>{{ producto.value.description }}</p>
+        <p>Precio: ${{ producto.value.price }}</p>
+        <p>Stock: {{ producto.value.stock }}</p>
       </div>
       <hr />
       <div class="button">
         <button
           style="padding: 0.4rem"
-          (click)="guardarProducto(producto._id, 1)"
+          (click)="guardarProducto(producto.value._id, 1)"
           pButton
           pRipple
           label=""

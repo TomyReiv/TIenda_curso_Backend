@@ -1,0 +1,37 @@
+<section>
+    <form
+      class="contact-form"
+      (submit)="send()"
+      [formGroup]="myForm"
+      autocomplete="off"
+    >
+      <fieldset>
+        <legend>Recuperación de contraseña:</legend>
+        <hr />
+        <div class="form-group">
+          <label for="username">Contraseña:</label>
+          <p-password
+          class="form-group-input"
+          id="password"
+          formControlName="password"
+          name="password"
+          [(ngModel)]="value"
+          [toggleMask]="true"
+        ></p-password>
+        </div>
+        <div class="form-group">
+          <label for="email">Repetir contraseña:</label>
+          <p-password
+          class="form-group-input"
+          id="re_password"
+          formControlName="re_password"
+          name="re_password"
+          [toggleMask]="true"
+        ></p-password>
+        </div>
+      </fieldset>
+      <span *ngIf="validField('re_password')">*Todos los campos son obligatorios</span>
+      <button class="btn-send" type="submit">Enviar</button>
+    </form>
+  </section>
+  

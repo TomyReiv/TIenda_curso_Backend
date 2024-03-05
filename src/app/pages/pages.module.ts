@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ItemComponent } from './item/item.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { RecoverPasswordComponent } from './recover-password/recover-password.component';
+import { NewPassComponent } from './new-pass/new-pass.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     ShopComponent,
     ItemComponent,
     UserViewComponent,
-    EditProductComponent
+    EditProductComponent,
+    RecoverPasswordComponent,
+    NewPassComponent
   ],
   imports: [
     CommonModule,

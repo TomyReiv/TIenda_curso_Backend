@@ -11,6 +11,8 @@ import { adminGuard } from '../guards/admin.guard';
 import { UserViewComponent } from './user-view/user-view.component';
 import { premiumGuard } from '../guards/premium.guard';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { RecoverPasswordComponent } from './recover-password/recover-password.component';
+import { NewPassComponent } from './new-pass/new-pass.component';
 
 
 const routes: Routes = [
@@ -19,7 +21,9 @@ const routes: Routes = [
     children: [
       {path: 'Home', component: HomeComponent},
       {path: 'Login', component: LoginComponent},
+      {path: 'recoverPassword', component: RecoverPasswordComponent},
       {path: 'Register', component: RegisterComponent},
+      {path: 'newPass/:id', component: NewPassComponent},
       {path: 'Producto', canActivate: [premiumGuard], component: AccountComponent},
       {path: 'Usuario', canActivate: [adminGuard], component: UserViewComponent},
       {path: 'Shopping_cart', canActivate: [authGuard], component: ShopComponent},

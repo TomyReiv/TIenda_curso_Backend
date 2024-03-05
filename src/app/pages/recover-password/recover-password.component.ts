@@ -1,22 +1,18 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { enviroment } from 'environments/environment.prod';
-import { UserService } from 'src/app/service/user.service';
+import { EmailService } from 'src/app/service/email.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-recover-password',
+  templateUrl: './recover-password.component.html',
+  styleUrls: ['./recover-password.component.css']
 })
-export class LoginComponent {
-
-  private userService = inject(UserService);
+export class RecoverPasswordComponent {
+  private emailService = inject(EmailService);
   private router = inject(Router);
-  public url = enviroment.Url;
-
+  private fb = inject(FormBuilder); 
   value: string = '';
-  constructor(private fb: FormBuilder) { }
 
   handlePasswordChange(event: any) {
     this.value = event.value;
@@ -26,7 +22,6 @@ export class LoginComponent {
 
   public myForm: FormGroup = this.fb.group({
     username: ['', Validators.required],
-    password: ['', [Validators.required, Validators.minLength(6)]],
     email: ['', [Validators.required, Validators.email]],
   });
 
@@ -52,17 +47,13 @@ export class LoginComponent {
     return null;
   }
   send() {
-    this.userService.login(this.myForm.value).subscribe(
-      (res) => {
-      localStorage.setItem('userData', JSON.stringify(res));
-      this.router.navigate(['/home']);
+    this.emailService.send(this.myForm.value).subscribe(
+      (res: any) => {
+      alert(res.message)
+      this.router.navigate(['/login']);
     },(err)=>{
-      alert('Email o contraseña incorrectas')
+      alert('Email incorrectas')
     })
 
-  }
-
-  recoverPassword(){
-    this.router.navigate(['/pages/recoverPassword']);
   }
 }
