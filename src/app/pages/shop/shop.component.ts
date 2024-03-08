@@ -46,9 +46,15 @@ export class ShopComponent {
       email: this.userData.email,
       username: this.userData.username,
     };
-    this.cartService.buyCart(this.cid, body).subscribe((res)=>{
-      console.log(res);
-    })
+    this.cartService.buyCart(this.cid, body).subscribe(
+      (res:any)=>{
+      alert(res.message)
+      window.location.reload();
+    },(err)=>{
+      console.error(err);
+      
+    }
+    )
   }
 
 }

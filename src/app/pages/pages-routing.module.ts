@@ -13,6 +13,7 @@ import { premiumGuard } from '../guards/premium.guard';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 import { NewPassComponent } from './new-pass/new-pass.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
       {path: 'newPass/:id', component: NewPassComponent},
       {path: 'Producto', canActivate: [premiumGuard], component: AccountComponent},
       {path: 'Usuario', canActivate: [adminGuard], component: UserViewComponent},
+      {path: 'editUser/:id', canActivate: [adminGuard], component: UserEditComponent},
       {path: 'Shopping_cart', canActivate: [authGuard], component: ShopComponent},
       {path: 'Item/:id', canActivate: [authGuard], component: ItemComponent},
       {path: 'edit-product/:id', canActivate: [premiumGuard], component: EditProductComponent},

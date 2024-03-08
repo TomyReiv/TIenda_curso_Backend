@@ -15,6 +15,7 @@ import { UserViewComponent } from './user-view/user-view.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 import { NewPassComponent } from './new-pass/new-pass.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NewPassComponent } from './new-pass/new-pass.component';
     UserViewComponent,
     EditProductComponent,
     RecoverPasswordComponent,
-    NewPassComponent
+    NewPassComponent,
+    UserEditComponent
   ],
   imports: [
     CommonModule,

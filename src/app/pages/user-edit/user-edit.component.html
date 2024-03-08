@@ -1,0 +1,63 @@
+<div class="contact-form">
+    <fieldset>
+      <legend>Editar {{user?.username}}</legend>
+      <form [formGroup]="myForm" (submit)="submitForm()" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input
+            formControlName="username"
+            type="text"
+            id="username"
+            name="username"
+            [placeholder]="user?.username"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="username">Lastname:</label>
+          <input
+            formControlName="lastname"
+            type="text"
+            id="lastname"
+            name="lastname"
+            [placeholder]="user?.lastname"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="price">Email:</label>
+          <input
+            formControlName="email"
+            type="number"
+            id="email"
+            name="email"
+            [placeholder]="user?.email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="code">Rol:</label>
+          <input
+            formControlName="rol"
+            type="text"
+            id="rol"
+            name="rol"
+            [placeholder]="user?.rol"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="category">Status:</label>
+          <input
+            formControlName="status"
+            type="text"
+            id="status"
+            name="status"
+            [placeholder]="user?.status"
+            required
+          />
+        </div>
+        <button type="submit" class="btn-send">Guardar Producto</button>
+      </form>
+    </fieldset>
+  </div>

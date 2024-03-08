@@ -6,7 +6,7 @@
   <div class="productos">
     <div *ngFor="let producto of productos | keyvalue" class="producto">
       <div (click)="redireccionarSerie(producto.value._id)" style="cursor: pointer">
-        <img [src]="producto?.value.thumbnail[0].path" alt="{{ producto.value.title }}" />
+        <img [src]="url + producto?.value.thumbnail[0].filename" alt="{{ producto.value.title }}" />
         <h2>{{ producto.value.title }}</h2>
         <p>{{ producto.value.description }}</p>
         <p>Precio: ${{ producto.value.price }}</p>

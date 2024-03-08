@@ -15,9 +15,9 @@ export class ItemComponent {
   public save: boolean = false;
   private route = inject(ActivatedRoute);
   public productos!: Producto;
-  public productIdToSearch!: string;
+  public id!: string;
   public userData: any = JSON.parse(localStorage.getItem('userData')!) || null;
-
+  public url: string = "https://vengeful-rat-production.up.railway.app/img/";
   private productService = inject(ProductServiceService);
   private router = inject(Router);
   private fb = inject(FormBuilder);
@@ -26,8 +26,8 @@ export class ItemComponent {
   ngOnInit(): void {
 
     this.route.paramMap.subscribe((params) => {
-      this.productIdToSearch = params.get('id')!;
-      this.productService.searchProduct(this.productIdToSearch).subscribe((result) => {
+      this.id = params.get('id')!;
+      this.productService.searchProduct(this.id).subscribe((result) => {
         this.productos = result;
       });
     });

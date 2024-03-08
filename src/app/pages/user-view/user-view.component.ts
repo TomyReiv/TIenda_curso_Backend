@@ -19,7 +19,7 @@ export class UserViewComponent {
     })
     
   }
-  editUser(user: any){
-
+  editUser(id: any){
+    this.router.navigate(["pages/editUser", id]);
   }
 }

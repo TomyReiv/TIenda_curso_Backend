@@ -52,7 +52,7 @@ export class RegisterComponent {
   send() {
     this.userService.register(this.myForm.value).subscribe((res) => {
       alert(res.message)
-      this.router.navigate(['/login']);
+      this.router.navigate(['/pages/Login'])
     })
   }
 }

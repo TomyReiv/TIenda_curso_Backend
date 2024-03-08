@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Producto } from 'src/app/interface/producto';
 import { ProductServiceService } from 'src/app/service/product-service.service';
 
 @Component({
@@ -16,7 +15,7 @@ export class AccountComponent {
   private router = inject(Router);
   private fb =  inject(FormBuilder);
   private productService =  inject(ProductServiceService);
-
+  public url: string = "https://vengeful-rat-production.up.railway.app/img/";
   ngOnInit(): void {
 
     this.productService.getAllProducts().subscribe((data) => {

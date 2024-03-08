@@ -16,7 +16,7 @@ export class HomeComponent {
   private productService = inject(ProductServiceService);
   private router = inject(Router);
   private cartService = inject(CartService)
-
+  public url: string = "https://vengeful-rat-production.up.railway.app/img/";
   constructor() { }
 
   ngOnInit(): void {

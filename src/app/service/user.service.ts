@@ -27,8 +27,14 @@ export class UserService {
     const url = `${this.userUrl}/users`;
     return this.http.get(url);
   }
+  getById(id: any){
+    const url = `${this.userUrl}/users/${id}`;
+    return this.http.get(url);
+  }
 
   isLoggedIn(): Observable<boolean> {
+    console.log(this.data);
+    
     if(!this.data){
       return of(false);
     }
@@ -46,6 +52,7 @@ export class UserService {
   }
 
   isPremium(): Observable<boolean> {
+    console.log(this.data);
     const url = `${this.userUrl}/users/${this.data.id}`;
     return this.http.get(url).pipe(
       map((res: any) => {
@@ -59,6 +66,7 @@ export class UserService {
   }
 
   isAdmin(): Observable<boolean> {
+    console.log(this.data);
     
     const url = `${this.userUrl}/users/${this.data.id}`;
     return this.http.get(url).pipe(
@@ -75,5 +83,9 @@ export class UserService {
   newPass(id: any, body: any){
     const url = `${this.userUrl}/users/${id}`;
     return this.http.put(url, body)
+  }
+  updateUser(id:any, data:any){
+    const url = `${this.userUrl}/users/${id}`;
+    return this.http.put(url, data)
   }
 }

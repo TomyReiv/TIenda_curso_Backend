@@ -60,17 +60,14 @@ export class EditProductComponent {
     const formValues = this.myForm.value;
     for (const key in formValues) {
       if (formValues.hasOwnProperty(key) && formValues[key] !== this.productos[key]) {
-        formData.append(key, formValues[key]);
-        
-        
+        formData.append(key, formValues[key]);   
       }
     }
 
     formData.append('owner', this.owner!.email);
-    console.log(formData);
+
     this.route.paramMap.subscribe((params)=>{
       this.pid = params.get('id')!;
-      console.log(this.pid);
       
       this.productService.updateProduct(this.pid, formData).subscribe(
         (res) => {

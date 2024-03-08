@@ -27,13 +27,13 @@ export class ProductServiceService {
   }
 
 
-   searchProduct(productId: string): Observable<any> {
-    return this.http.get(`${this.prodUrl}/products`).pipe(
-      map((data: any) => {
+   searchProduct(pid: string): Observable<any> {
+    return this.http.get(`${this.prodUrl}/products/${pid}`)/* .pipe(
+       map((data: any) => {
         const product = data.payload.find((product: any) => product._id === productId);       
         return product;
       })
-    );
+    ); */
   }
   saveProduct(data: any){
     const url = `${this.prodUrl}/products/products`;
