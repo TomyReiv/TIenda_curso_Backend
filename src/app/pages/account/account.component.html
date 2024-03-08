@@ -87,7 +87,7 @@
   </p>
   <div class="productos">
     <div *ngFor="let producto of productos | keyvalue" class="producto">
-      <div style="cursor: pointer">
+      <div>
         <img [src]="url + producto?.value.thumbnail[0].filename" alt="{{ producto?.value.title }}" />
         <h2>{{ producto?.value.title }}</h2>
         <p>{{ producto?.value.description }}</p>

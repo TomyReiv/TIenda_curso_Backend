@@ -58,6 +58,8 @@ export class LoginComponent {
       this.router.navigate(['/home']);
     },(err)=>{
       alert('Email o contraseña incorrectas')
+      console.log(err);
+      
     })
 
   }

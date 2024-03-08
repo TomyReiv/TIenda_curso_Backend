@@ -14,7 +14,8 @@ export class ShopComponent {
   public cartItems: any[] = []; 
   public userData: any = JSON.parse(localStorage.getItem('userData')!) || null;
   public cid?: any;
-  constructor() {}
+  public waiting: boolean = false;
+  public url: string = "https://vengeful-rat-production.up.railway.app/img/";
 
   ngOnInit(): void {
     
@@ -42,12 +43,14 @@ export class ShopComponent {
     })
   }
   buy(){
+    this.waiting = true
     let body = {
       email: this.userData.email,
       username: this.userData.username,
     };
     this.cartService.buyCart(this.cid, body).subscribe(
       (res:any)=>{
+      this.waiting = false
       alert(res.message)
       window.location.reload();
     },(err)=>{

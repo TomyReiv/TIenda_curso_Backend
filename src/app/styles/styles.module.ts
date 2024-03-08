@@ -5,6 +5,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { MenubarModule } from 'primeng/menubar';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [],
@@ -13,14 +14,16 @@ import { InputTextModule } from 'primeng/inputtext';
     CarouselModule,
     MenubarModule,
     PasswordModule,
-    InputTextModule
+    InputTextModule,
+    ProgressSpinnerModule
   ],
   exports:[
     ButtonModule,
     CarouselModule,
     MenubarModule,
     PasswordModule,
-    InputTextModule
+    InputTextModule,
+    ProgressSpinnerModule
   ]
 })
 export class StylesModule { }

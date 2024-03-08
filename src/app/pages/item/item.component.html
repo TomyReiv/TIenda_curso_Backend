@@ -1,6 +1,6 @@
 <div class="product-container">
   <div class="product-image">
-    <img loading="lazy" [src]="url + productos.thumbnail[0].filname" [alt]="productos.title" />
+    <img loading="lazy" [src]="url + productos!.thumbnail[0].filename" [alt]="productos.title" />
   </div>
   <div class="product-details">
     <h1>{{ productos.title }}</h1>
