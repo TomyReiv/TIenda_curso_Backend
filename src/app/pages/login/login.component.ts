@@ -55,7 +55,7 @@ export class LoginComponent {
     this.userService.login(this.myForm.value).subscribe(
       (res) => {
       localStorage.setItem('userData', JSON.stringify(res));
-      this.router.navigate(['/home']);
+      this.router.navigate(['/pages/home']);
     },(err)=>{
       alert('Email o contraseña incorrectas')
       console.log(err);

@@ -21,9 +21,7 @@ export class ShopComponent {
     
      this.cartService.getCart(this.userData.cart).subscribe((res)=>{
       this.cid = res._id
-      this.cartItems.push(res.items);
-      console.log(this.cartItems);
-      
+      this.cartItems.push(res.items);    
      })
   }
 

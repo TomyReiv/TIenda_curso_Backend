@@ -21,7 +21,6 @@ export class AccountComponent {
     this.productService.getAllProducts().subscribe((data) => {
       if (data.status === 'success') {
         this.productos = data.payload;
-        console.log(this.productos);
       } else {
         console.error('Error al obtener los datos');
       }

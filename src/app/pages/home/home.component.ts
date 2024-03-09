@@ -24,7 +24,6 @@ export class HomeComponent {
     this.productService.getAllProducts().subscribe((data) => {
       if (data.status === 'success') {
         this.productos = data.payload;
-        console.log(this.productos);
       } else {
         console.error('Error al obtener los datos');
       }
@@ -32,8 +31,6 @@ export class HomeComponent {
   }
 
   redireccionarSerie(id: number) {
-    console.log(id);
-
     this.router.navigate(['/pages/Item/', id]);
   }
 

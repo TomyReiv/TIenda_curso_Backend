@@ -1,4 +1,3 @@
-import { User } from 'src/app/interface/user';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
