@@ -51,7 +51,7 @@ export class MenuComponent {
   }
 
   redirectTo() {
-    window.open(`http://localhost:4200/pages/Shopping_cart`, "_self");
+    this.router.navigate(['/pages/Shopping_cart']);
   }
   logout() {
     localStorage.removeItem("token");

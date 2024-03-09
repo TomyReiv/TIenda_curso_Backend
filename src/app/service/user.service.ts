@@ -11,7 +11,7 @@ export class UserService {
 
   private readonly userUrl: string = enviroment.Url;
   private http = inject(HttpClient);
-  public data: any = JSON.parse(localStorage.getItem('userData')!)  || null;
+  /* public data: any = JSON.parse(localStorage.getItem('userData')!)  || null; */
   public user?: User;
 
 
@@ -33,12 +33,12 @@ export class UserService {
   }
 
   isLoggedIn(): Observable<boolean> {
-    console.log(this.data);
+    let dataStorage = JSON.parse(localStorage.getItem('userData')!) || null;
     
-    if(!this.data){
+    if(!dataStorage){
       return of(false);
     }
-    const url = `${this.userUrl}/users/${this.data.id}`;
+    const url = `${this.userUrl}/users/${dataStorage.id}`;
    
     return this.http.get(url).pipe(
       map((res: any) => {
@@ -52,8 +52,8 @@ export class UserService {
   }
 
   isPremium(): Observable<boolean> {
-    console.log(this.data);
-    const url = `${this.userUrl}/users/${this.data.id}`;
+    let dataStorage = JSON.parse(localStorage.getItem('userData')!) || null;
+    const url = `${this.userUrl}/users/${dataStorage.id}`;
     return this.http.get(url).pipe(
       map((res: any) => {
         return res.rol === "admin" || res.rol === "premium";
@@ -66,9 +66,9 @@ export class UserService {
   }
 
   isAdmin(): Observable<boolean> {
-    console.log(this.data);
+    let dataStorage = JSON.parse(localStorage.getItem('userData')!) || null;
     
-    const url = `${this.userUrl}/users/${this.data.id}`;
+    const url = `${this.userUrl}/users/${dataStorage.id}`;
     return this.http.get(url).pipe(
       map((res: any) => {
         return res.rol === "admin";
