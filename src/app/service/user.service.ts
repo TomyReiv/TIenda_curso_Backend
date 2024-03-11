@@ -88,4 +88,12 @@ export class UserService {
     const url = `${this.userUrl}/users/${id}`;
     return this.http.put(url, data)
   }
+  delete(id: any, rid: any){
+    const url = `${this.userUrl}/users/${id}/${rid}`;
+    return this.http.delete(url)
+  }
+  logout(id: any){
+    const url = `${this.userUrl}/users/logout/${id}`;
+    return this.http.get(url)
+  }
 }

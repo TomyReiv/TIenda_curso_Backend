@@ -22,4 +22,15 @@ export class UserViewComponent {
   editUser(id: any){
     this.router.navigate(["pages/editUser", id]);
   }
+  deleteUser(id:any){
+    let rid: any = JSON.parse(localStorage.getItem('userData')!)
+    
+    this.userService.delete(id, rid.id).subscribe(
+      (res:any)=>{
+        alert(res.message);
+      }),
+      (err:any)=>{
+        console.log(err);
+      }
+  }
 }

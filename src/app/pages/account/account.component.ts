@@ -31,7 +31,7 @@ export class AccountComponent {
     this.productService.delete(id).subscribe(
       (res: any)=>{
       alert(res.message);
-      window.location.reload();
+      this.router.navigate(['/pages/Producto']);
     },(err)=>{
       alert(err.error.message);
     }

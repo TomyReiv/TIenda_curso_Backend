@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-menu',
@@ -12,6 +13,7 @@ export class MenuComponent {
   items: MenuItem[] | undefined;
 
   private router = inject(Router);
+  private userService = inject(UserService);
 
   ngOnInit() {
     this.items = [
@@ -54,7 +56,13 @@ export class MenuComponent {
     this.router.navigate(['/pages/Shopping_cart']);
   }
   logout() {
-    localStorage.removeItem("token");
+    let id: any = JSON.parse(localStorage.getItem('userData')!)  
+    this.userService.logout(id.id).subscribe(
+      (res)=>{
+        console.log(res); 
+    },(err)=>{
+      console.log(err);
+    })
     localStorage.removeItem("userData");
     this.router.navigate(['/pages/Login']);
   }
