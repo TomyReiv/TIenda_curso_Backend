@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { enviroment } from 'environments/environment';
 import { Observable, catchError, map, of } from 'rxjs';
@@ -17,6 +17,12 @@ export class UserService {
 
   login(credentials: any): Observable<any> {
     const url = `${this.userUrl}/users/login`;
+/*     const options = {
+      Headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }), 
+      withCredentials: true,
+    }  */
     return this.http.post(url, credentials);
   }
   register(credentials: any): Observable<any> {
@@ -49,6 +55,10 @@ export class UserService {
         return of(false);
       })
     );
+  }
+
+  obtenerToken(): string | null {   
+    return localStorage.getItem('token');
   }
 
   isPremium(): Observable<boolean> {
@@ -88,8 +98,8 @@ export class UserService {
     const url = `${this.userUrl}/users/${id}`;
     return this.http.put(url, data)
   }
-  delete(id: any, rid: any){
-    const url = `${this.userUrl}/users/${id}/${rid}`;
+  delete(id: any){
+    const url = `${this.userUrl}/users/${id}`;
     return this.http.delete(url)
   }
   logout(id: any){

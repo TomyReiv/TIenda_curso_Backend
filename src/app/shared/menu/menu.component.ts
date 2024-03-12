@@ -64,6 +64,7 @@ export class MenuComponent {
       console.log(err);
     })
     localStorage.removeItem("userData");
+    localStorage.removeItem("token");
     this.router.navigate(['/pages/Login']);
   }
 }

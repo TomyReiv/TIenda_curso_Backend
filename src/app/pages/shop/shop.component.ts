@@ -37,7 +37,7 @@ export class ShopComponent {
   removeFromCart(pid: any): void {
     this.cartService.deleteToCart(this.cid, pid).subscribe((res: any)=>{
       alert(res.message);
-      this.router.navigate(['/pages/Shopping_cart']);
+      window.location.reload();
     })
   }
   buy(){

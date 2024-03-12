@@ -25,9 +25,10 @@ export class UserViewComponent {
   deleteUser(id:any){
     let rid: any = JSON.parse(localStorage.getItem('userData')!)
     
-    this.userService.delete(id, rid.id).subscribe(
+    this.userService.delete(id).subscribe(
       (res:any)=>{
         alert(res.message);
+        window.location.reload();
       }),
       (err:any)=>{
         console.log(err);
