@@ -17,12 +17,6 @@ export class UserService {
 
   login(credentials: any): Observable<any> {
     const url = `${this.userUrl}/users/login`;
-/*     const options = {
-      Headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      }), 
-      withCredentials: true,
-    }  */
     return this.http.post(url, credentials);
   }
   register(credentials: any): Observable<any> {

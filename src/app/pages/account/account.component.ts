@@ -78,8 +78,9 @@ export class AccountComponent {
         alert('Carga correctamente')
         window.location.reload();
       },
-      (error) => {
-        console.error(error);
+      (err) => {
+        alert(err.error.message)
+        console.error(err);
       }
     );
   };
